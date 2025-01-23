@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${project.name}">Создание задачи</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4" th:text="${project.name}"/>
+
+    <div class="mb-4">
+        <a href="/open-project/{id}" th:href="@{/open-project/{id}(id=${project.id})}" class="btn btn-secondary">Вернуться к проекту</a>
+    </div>
+
+    <h2>Создание задачи</h2>
+
+    <form th:action="@{/open-project/{id}/create-task(id=${project.id})}" method="post">
+        <div class="form-group">
+            <label for="name">Название задачи</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Описание задачи</label>
+            <textarea id="description" name="description" class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Создать задачу</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

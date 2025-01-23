@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${task.name}">Задача</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4" th:text="${project.name}">Название проекта</h1>
+    <h2 class="mb-3" th:text="${task.name}">Название задачи</h2>
+    <p class="lead" th:text="${task.description}">Описание задачи</p>
+
+    <div class="mt-4">
+        <a th:href="@{/open-project/{project_id}(project_id=${project.id})}" class="btn btn-secondary">Назад</a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваши проекты</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">Ваши проекты</h1>
+
+    <div class="mb-3">
+        <a href="/create-project" class="btn btn-primary">Создать проект</a>
+    </div>
+
+    <div class="projects-list">
+        <ul class="list-group">
+            <!-- Проверяем, есть ли проекты -->
+            <th:block th:if="${projects.size() == 0}">
+                <li class="list-group-item">У вас нет проектов.</li>
+            </th:block>
+
+            <!-- Выводим список проектов -->
+            <th:block th:unless="${projects.size() == 0}">
+                <th:block th:each="project : ${projects}">
+                    <li class="list-group-item">
+                        <a th:href="@{/open-project/{id}(id=${project.id})}" th:text="${project.name}"></a>
+                    </li>
+                </th:block>
+            </th:block>
+        </ul>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
